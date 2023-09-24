@@ -52,3 +52,16 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Composable
+fun TopicGrid(modifier: Modifier = Modifier) {
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
+        verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small)),
+        horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small)),
+        modifier = modifier
+    ) {
+        items(DataSource.topics) { topic ->
+            TopicCard(topic)
+        }
+    }
+}
